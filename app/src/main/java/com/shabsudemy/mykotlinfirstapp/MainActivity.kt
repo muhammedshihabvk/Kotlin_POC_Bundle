@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var button1: Button
     lateinit var button2: Button
     lateinit var button3: Button
-
+    lateinit var button4: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +22,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button1 = findViewById(R.id.button1)
         button2 = findViewById(R.id.button2)
         button3 = findViewById(R.id.button3)
+        button4 = findViewById(R.id.button4)
 
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
+        button4.setOnClickListener(this)
 
     }
 
@@ -43,6 +45,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.button3 ->{
                 i= Intent(applicationContext, SharedPrefActivity::class.java)
+                startActivity(i)
+            }
+            R.id.button4 ->{
+                i= Intent(applicationContext, DynamicViewGenActivity::class.java)
                 startActivity(i)
             }
             else -> println("unknown click")

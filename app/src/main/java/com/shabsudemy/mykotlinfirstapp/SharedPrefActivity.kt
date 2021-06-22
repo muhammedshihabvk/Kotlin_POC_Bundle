@@ -27,7 +27,7 @@ class SharedPrefActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val editTextValue: String = editText.text.toString()
             val editor:SharedPreferences.Editor =  getSharedPrefEditor().edit()
-            editor.putString("key", editTextValue.toString())
+            editor.putString(KEY, editTextValue.toString())
             editor.apply()
 //            editor.commit()
             savedText.text = editTextValue
@@ -42,7 +42,7 @@ class SharedPrefActivity : AppCompatActivity() {
     }
 
     fun retriveSavedDataFromPref() {
-        val data: String? = getSharedPreferences("ShabsSharedPref", Context.MODE_PRIVATE).getString("key", "no value")
+        val data: String? = getSharedPreferences("ShabsSharedPref", Context.MODE_PRIVATE).getString(KEY, "no value")
         println("data retrived: $data")
         savedText.setText(data).toString()
     }
