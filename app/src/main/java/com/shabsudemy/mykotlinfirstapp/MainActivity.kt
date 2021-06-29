@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.shabsudemy.mykotlinfirstapp.models.Hero
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var button3: Button
     lateinit var button4: Button
     lateinit var button5: Button
+    //use kotlin extension to get view
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
         button5.setOnClickListener(this)
+
+        button6.setOnClickListener{
+            var i= Intent(applicationContext, NavigationDrawerActivity::class.java)
+            startActivity(i)
+        }
+
+        button7.setOnClickListener{
+            var i= Intent(applicationContext, CoroutinesPOCActivity::class.java)
+            startActivity(i)
+        }
+
+
 
     }
 

@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyKotlinFirstApp">
-        <activity android:name=".KotlinExtensionsPOCActivity"></activity>
+        <activity android:name=".CoroutinesPOCActivity"></activity>
+        <activity
+            android:name=".NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/Theme.MyKotlinFirstApp.NoActionBar" />
+        <activity android:name=".KotlinExtensionsPOCActivity" />
         <activity android:name=".DynamicViewGenActivity" />
         <activity android:name=".SharedPrefActivity" />
         <activity android:name=".ListViewActivity" />
