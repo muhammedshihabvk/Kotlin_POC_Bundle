@@ -35,6 +35,17 @@ class CoroutinesPOCActivity : AppCompatActivity() {
             println("Coroutine runBlocking work start ${Thread.currentThread().name}")
             delay(2000)
             println("Coroutine runBlocking work ends ${Thread.currentThread().name}")
+
+            val job: Job = launch {
+                println("launch work start ${Thread.currentThread().name}")
+            }
+
+            job.join() // this will stop exection till job is complete
+            println("job status job.isActive : ${job.isActive}")
+//            job.cancel()
+            println("job status job.isCancelled : ${job.isCancelled}")
+            println("job status job.isActive : ${job.isActive}")
+            println("job status job.isCompleted : ${job.isCompleted}")
         }
 
 //        suspendSampleFunction(2000)  //wont be able to call on main thread , need coroutine scope
@@ -52,9 +63,24 @@ class CoroutinesPOCActivity : AppCompatActivity() {
             println("Coroutine2 work ends ${Thread.currentThread().name}")
             textViewCorotines.text = "shihab"
         }
+
+        runBlocking {
+            val asyncDifferd: Deferred<String> = async {
+                println("async Coroutine work start ${Thread.currentThread().name}")
+                delay(1000)
+                println("async Coroutine work ends ${Thread.currentThread().name}")
+                "shihab"
+            }
+
+            asyncDifferd.join()   // for just run the code block
+            val result: String = asyncDifferd.await()
+            println(result)
+        }
+
+
     }
 
-    suspend fun suspendSampleFunction(time: Long){
+    suspend fun suspendSampleFunction(time: Long) {
         delay(time)
     }
 
